@@ -17,6 +17,7 @@ function App() {
       {todos.map(todo => (<li key={todo}>{todo}</li>))}
     </ul>
     <Compteur />
+      <Formulaire/>
   </>
 
 
@@ -46,6 +47,15 @@ function Compteur() {
   <p>Le monsieur s'appelle {person.firstName} et son âge {person.age}</p>
     <button onClick={increment}>Incrémenter son âge de 1 année</button>
   </>
+}
+
+
+function Formulaire(){
+
+    return <form>
+        <input type="text" placeholder="Entrez votre nom" name="firstname" />
+
+    </form>
 }
 
 export default App
