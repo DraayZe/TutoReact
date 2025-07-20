@@ -10,6 +10,9 @@ const todos = [
 
 function App() {
 
+
+    const [isTermAccepted, setIsTermAccepted] = useState(false)
+
   return <>
     <Title id="monid" className="maclass" />
     <p>testtt</p>
@@ -18,6 +21,8 @@ function App() {
     </ul>
     <Compteur />
       <Formulaire/>
+      <CGUCheckbox checked={isTermAccepted} onCheck={setIsTermAccepted} />
+      <button disabled={!isTermAccepted}>Envoyer le formulaire</button>
   </>
 
 
@@ -56,6 +61,18 @@ function Formulaire(){
         <input type="text" placeholder="Entrez votre nom" name="firstname" />
 
     </form>
+}
+
+function CGUCheckbox({checked, onCheck}) {
+    return <div>
+        <label>
+            <input type="checkbox"
+                   onChange={(e) => onCheck(e.target.checked)}
+                   checked={checked} />
+            J'accepte les CGU
+        </label>
+    </div>
+
 }
 
 export default App
